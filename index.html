@@ -16,8 +16,17 @@
     <div class="container">
         <!-- Header -->
         <header class="header">
+            <div class="date-display" id="current-date">2024년 00월 00일</div>
             <h1 class="animate-fade-in"><i class="fa-solid fa-moon"></i> 신비로운 타로 운세</h1>
-            <p class="subtitle animate-fade-in-delay">눈을 감고 당신의 질문을 생각하며 카드를 한 장 선택해 보세요.</p>
+            
+            <!-- Mode Selection -->
+            <div class="mode-selector">
+                <button id="mode-1" class="mode-btn active" onclick="setMode(1)">오늘의 타로 (1장)</button>
+                <button id="mode-3" class="mode-btn" onclick="setMode(3)">운명의 흐름 (3장)</button>
+            </div>
+
+            <p id="selection-status" class="subtitle animate-fade-in-delay">오늘 하루 당신에게 찾아올 행운의 메시지를 확인하세요.</p>
+            <button id="view-results-btn" class="btn-primary" style="display: none; margin: 20px auto;">결과 확인하기</button>
         </header>
 
         <!-- Tarot Board -->
@@ -27,20 +36,12 @@
             </div>
         </main>
 
-        <!-- Result Modal -->
+        <!-- Integrated Result Modal -->
         <div id="result-modal" class="modal">
-            <div class="modal-content">
+            <div id="modal-content" class="modal-content-today">
                 <span class="close-btn">&times;</span>
-                <div class="result-details">
-                    <div class="result-card-view">
-                        <img id="result-card-img" src="" alt="선택된 카드">
-                    </div>
-                    <div class="result-text">
-                        <h2 id="result-card-name">카드 이름</h2>
-                        <div class="divider"></div>
-                        <p id="result-card-meaning">카드 해석이 여기에 표시됩니다.</p>
-                        <button class="btn-retry" onclick="location.reload()">다시 확인하기</button>
-                    </div>
+                <div id="result-area">
+                    <!-- JavaScript로 1장 또는 3장 결과가 동적으로 생성됩니다 -->
                 </div>
             </div>
         </div>
