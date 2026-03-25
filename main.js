@@ -11,9 +11,94 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal();
     
     window.setMode = setMode; 
+    window.showPrivacyPolicy = showPrivacyPolicy;
+    window.showTermsOfService = showTermsOfService;
+    window.showAbout = showAbout;
+    window.closePolicyModal = closePolicyModal;
+    window.shareKakao = shareKakao;
+    window.copyLink = copyLink;
+
     const resultBtn = document.getElementById('view-results-btn');
     resultBtn.addEventListener('click', showResult);
 });
+
+function showPrivacyPolicy() {
+    const modal = document.getElementById('policy-modal');
+    const content = document.getElementById('policy-content');
+    content.innerHTML = `
+        <h2>개인정보처리방침</h2>
+        <p>본 사이트(이하 '회사')는 이용자의 개인정보를 중요시하며, "개인정보보호법" 등 관련 법령을 준수하고 있습니다.</p>
+        
+        <h3>1. 개인정보의 수집 항목 및 방법</h3>
+        <p>회사는 별도의 회원가입 절차 없이 서비스를 제공하며, 이용자의 개인식별정보(이름, 연락처 등)를 수집하거나 저장하지 않습니다.</p>
+        
+        <h3>2. 광고 게재 및 쿠키(Cookie) 사용</h3>
+        <p>본 사이트는 Google AdSense를 사용하여 광고를 게재합니다. Google을 포함한 제3자 제공업체는 쿠키를 사용하여 이용자의 이전 방문을 토대로 광고를 게재합니다.</p>
+        <ul>
+            <li>Google은 광고 쿠키를 사용하여 이용자가 본 사이트 또는 다른 사이트를 방문한 기록을 토대로 맞춤형 광고를 제공할 수 있습니다.</li>
+            <li>이용자는 Google의 <a href="https://adssettings.google.com" target="_blank">광고 설정</a>에서 맞춤설정 광고 게재를 중단할 수 있습니다.</li>
+        </ul>
+
+        <h3>3. 개인정보의 보유 및 이용기간</h3>
+        <p>회사는 이용자의 개인정보를 저장하지 않으므로 보유 및 이용기간이 존재하지 않습니다. 다만, 브라우저 로컬스토리지를 통해 저장되는 설정값은 이용자가 직접 삭제할 수 있습니다.</p>
+
+        <h3>4. 이용자의 권리</h3>
+        <p>이용자는 언제든지 본인의 브라우저 설정에서 쿠키 수집을 거부하거나 삭제할 권리가 있습니다.</p>
+    `;
+    modal.style.display = 'block';
+}
+
+function showTermsOfService() {
+    const modal = document.getElementById('policy-modal');
+    const content = document.getElementById('policy-content');
+    content.innerHTML = `
+        <h2>이용약관</h2>
+        
+        <h3>제1조 (목적)</h3>
+        <p>본 약관은 '신비로운 타로 운세'(이하 '사이트')가 제공하는 모든 서비스의 이용 조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.</p>
+
+        <h3>제2조 (서비스의 성격 및 한계)</h3>
+        <p>1. 본 사이트가 제공하는 타로 운세 결과는 과학적 근거가 없는 엔터테인먼트 목적의 콘텐츠입니다.<br>
+           2. 서비스 이용 결과에 대한 최종적인 판단과 책임은 이용자 본인에게 있으며, 사이트는 어떠한 법적 책임도 지지 않습니다.<br>
+           3. 점술 결과는 상담을 대체할 수 없으며, 중요한 결정(금융, 의료, 법률 등) 시 전문가와 상담하시기 바랍니다.</p>
+
+        <h3>제3조 (이용자의 의무)</h3>
+        <p>이용자는 본 사이트를 불법적인 용도로 이용하거나 시스템에 위해를 가하는 행위를 해서는 안 됩니다.</p>
+
+        <h3>제4조 (지적재산권)</h3>
+        <p>본 사이트에서 제공하는 디자인, 코드, 콘텐츠(타로 설명글 등)의 저작권은 사이트 운영자에게 있으며, 무단 복제 및 배포를 금지합니다. 타로 카드 이미지는 퍼블릭 도메인(Public Domain) 또는 적법한 출처를 가진 자료를 사용합니다.</p>
+    `;
+    modal.style.display = 'block';
+}
+
+function showAbout() {
+    const modal = document.getElementById('policy-modal');
+    const content = document.getElementById('policy-content');
+    content.innerHTML = `
+        <h2>사이트 소개</h2>
+        <p>신비로운 타로 운세는 라이더 웨이트 타로 시스템을 현대적으로 재해석하여 사용자들에게 매일의 조언과 통찰을 제공하는 웹 서비스입니다.</p>
+        <p>우리는 모든 사람이 자신의 내면을 들여다보고 보다 긍정적인 방향으로 하루를 설계할 수 있도록 돕는 것을 목표로 합니다.</p>
+        <p>본 사이트는 반응형 웹 기술을 적용하여 PC와 모바일 어디서나 최적화된 경험을 제공합니다.</p>
+    `;
+    modal.style.display = 'block';
+}
+
+function closePolicyModal() {
+    document.getElementById('policy-modal').style.display = 'none';
+}
+
+function shareKakao() {
+    alert("카카오톡 공유 기능은 실제 도메인이 연결되고 카카오 개발자 키가 설정되어야 작동합니다.\n\n현재는 링크 복사를 이용해 주세요.");
+}
+
+function copyLink() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        alert("링크가 복사되었습니다. 친구들에게 운세를 공유해보세요!");
+    }).catch(err => {
+        console.error('복사 실패:', err);
+    });
+}
 
 function updateDate() {
     const dateEl = document.getElementById('current-date');
